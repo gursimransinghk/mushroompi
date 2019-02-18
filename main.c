@@ -51,36 +51,34 @@ int main (void)
 	pinMode(LIGHT_S,INPUT);
 	pinMode(ION_S,INPUT);
 	/*SENSOR FUNCTIONS*/
-	for(;;){
+	while(1){
 	if(digitalRead(SOIL_S)==0){
 		digitalWrite(RELAY,1);
 		}
 	else{
 		digitalWrite(RELAY,0);
 		}
-		
 	if(digitalRead(TEMP_S)==0){
-		digitalWrite(RELAY1,1);
-		}
-	else{
-		digitalWrite(RELAY1,0);
-		}
-		
-	if(digitalRead(LIGHT_S)==0){
 		digitalWrite(RELAY2,1);
 		}
 	else{
 		digitalWrite(RELAY2,0);
 		}
-		
-	if(digitalRead(ION_S)==0){
+	if(digitalRead(LIGHT_S)==0){
 		digitalWrite(RELAY3,1);
 		}
 	else{
 		digitalWrite(RELAY3,0);
 		}
+	if(digitalRead(ION_S)==0){
+		digitalWrite(RELAY4,1);
+		}
+	else{
+		digitalWrite(RELAY4,0);
+		}
 	//int x;
 	 //for (x=0; x<5; x++);
 }
+return 0;
 }
 
