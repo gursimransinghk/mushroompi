@@ -58,6 +58,27 @@ int main (void)
 	else{
 		digitalWrite(RELAY,0);
 		}
+		
+	if(digitalRead(TEMP_S)==0){
+		digitalWrite(RELAY1,1);
+		}
+	else{
+		digitalWrite(RELAY1,0);
+		}
+		
+	if(digitalRead(LIGHT_S)==0){
+		digitalWrite(RELAY2,1);
+		}
+	else{
+		digitalWrite(RELAY2,0);
+		}
+		
+	if(digitalRead(ION_S)==0){
+		digitalWrite(RELAY3,1);
+		}
+	else{
+		digitalWrite(RELAY3,0);
+		}
 	//int x;
 	 //for (x=0; x<5; x++);
 }
