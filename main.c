@@ -59,13 +59,7 @@ int main (void)
 		digitalWrite(RELAY,0);
 		}
 	//int x;
-	for(;;)  //for (x=0; x<5; x++)
-	       {
-		 digitalWrite(LED, 1);
-		 delay(500);
-		 digitalWrite(LED, 0);
-		 delay(500);
-		}
-}}
-
+	 //for (x=0; x<5; x++);
+}
+}
 
