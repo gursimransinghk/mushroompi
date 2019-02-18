@@ -44,9 +44,9 @@ int main (void)
 	//int x;
 	for(;;)  //for (x=0; x<5; x++)
 	       {
-		 digitalWrite(LED, HIGH);
+		 digitalWrite(LED, 1);
 		 delay(500);
-		 digitalWrite(LED, LOW);
+		 digitalWrite(LED, 0);
 		 delay(500);
 		}
 }
