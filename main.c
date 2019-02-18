@@ -2,12 +2,15 @@
 #include<wiringPi.h>
 #include<string.h>
 
-#define LED 17  //BCM
-
+#define LED 17          //LED
+#define RELAY 27	//Moisture Pump
+#define RELAY2 22	//Cooling Pump
+#define RELAY3 10	//Nutrient Pump
+#define RELAY4 9 	//Heater
 char *dash(char *buf, int len ) {
-    memset(buf, '-', len);
-    buf[len] = 0;
-    return buf;
+   memset(buf, '-', len);
+   buf[len] = 0;
+   return buf;
 }
 
 int main (void)
@@ -26,7 +29,18 @@ int main (void)
 	printf("%s\n", dash(buf,60));
 
 	wiringPiSetupGpio();
-	pinMode(LED,OUTPUT);
+	/*WiringPi GPIO*/
+	pinMode(LED,OUTPUT);		//LED
+	pinMode(RELAY,OUTPUT);	//Moisture Pump
+	pinMode(RELAY2,OUTPUT);	//Cooling Pump
+	pinMode(RELAY3,OUTPUT);	//Nutrient Pump
+	pinMode(RELAY4,OUTPUT);	//Heater
+
+	digitalWrite(RELAY,0);
+	digitalWrite(RELAY2,0);
+	digitalWrite(RELAY3,0);
+	digitalWrite(RELAY4,0);
+
 	//int x;
 	for(;;)  //for (x=0; x<5; x++)
 	       {
@@ -35,6 +49,5 @@ int main (void)
 		 digitalWrite(LED, LOW);
 		 delay(500);
 		}
-	return 0;
 }
 
