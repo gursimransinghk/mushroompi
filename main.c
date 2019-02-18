@@ -1,5 +1,4 @@
 /*PROGRAM FOR RASPBERRYPI MODEL 3B+*/
-/*PROGRAM BY GURSIMRAN SINGH,gs369*/
 /*PROGRAM SOURCE - https://www.github.com/gs369/mushroompi*/
 
 /*LIBRARY*/
@@ -51,11 +50,13 @@ int main (void)
 	pinMode(TEMP_S,INPUT);
 	pinMode(LIGHT_S,INPUT);
 	pinMode(ION_S,INPUT);
-	/*digitalWrite fn_OUTPUTS*/
-	digitalWrite(RELAY,0);
-	digitalWrite(RELAY2,0);
-	digitalWrite(RELAY3,0);
-	digitalWrite(RELAY4,0);
+	/*SENSOR FUNCTIONS*/
+	if(digitalRead(SOIL_S)==0){
+		digitalWrite(RELAY,0);
+		}
+	else{
+		digitalWrite(RELAY,1);
+		}
 
 	//int x;
 	for(;;)  //for (x=0; x<5; x++)
