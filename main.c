@@ -53,13 +53,13 @@ int main (void)
 	/*SENSOR FUNCTIONS*/
 	while(1){
 	if(digitalRead(SOIL_S)==0){
-	   digitalWrite(RELAY,1);
+	   digitalWrite(RELAY,HIGH);
 	}
 	else{
-	  digitalWrite(RELAY,0);
+	  digitalWrite(RELAY,LOW);
 		}
 	}
-
+return 0;
 }
 //int x;
 //for (x=0;x<5;x++);
