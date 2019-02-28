@@ -54,11 +54,12 @@ int main (void)
 	while(1){
 	if(digitalRead(SOIL_S)==0){
 	   digitalWrite(RELAY,1);
+	}
 	else{
 	  digitalWrite(RELAY,0);
 		}
 	}
-}
+
 }
 //int x;
 //for (x=0;x<5;x++);
