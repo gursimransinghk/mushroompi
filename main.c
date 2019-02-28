@@ -59,6 +59,24 @@ int main (void)
 	  digitalWrite(RELAY,LOW);
 		}
 	}
+	if(digitalRead(TEMP_S)==0){
+	 digitalWrite(RELAY2,HIGH);
+	}
+	else{
+	 digitalWrite(RELAY2,LOW);
+	}
+	if(digitalRead(LIGHT_S)==0){
+	 digitalWrite(RELAY3,HIGH);
+	}
+	else{
+ 	 digitalWrite(RELAY3,LOW);
+	}
+	if(digitalRead(ION_S)==0){
+	 digitalWrite(RELAY4,HIGH);
+	}
+	else{
+	 digitalWrite(RELAY4,LOW);
+	}
 return 0;
 }
 //int x;
