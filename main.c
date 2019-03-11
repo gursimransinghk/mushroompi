@@ -6,15 +6,15 @@
 #include<wiringPi.h>
 #include<string.h>
 /*DECLARAION OF RASPBERRYPI PINS*/
-#define RELAY 9		//Moisture Pump
-#define RELAY2 11	//Cooling Pump
-#define RELAY3 0	//Nutrient Pump
-#define RELAY4 5	//Heater
-#define RELAY5 6 	//Heater
-#define SOIL_S 17	//SOIL SENSOR
-#define TEMP_S 22	//TEMPERATURE SENSOR
-#define LIGHT_S 27	//LIGHT SENSOR(LDR)
-#define ION_S 10 	//NUTRIENT SENSOR(ION)
+#define RELAY 9
+#define RELAY2 11
+#define RELAY3 0
+#define RELAY4 5
+#define RELAY5 6
+#define SOIL_S 17
+#define TEMP_S 22
+#define LIGHT_S 27
+#define ION_S 10
 /*FOR LINES*/
 char *dash(char *buf, int len ) {
    memset(buf, '-', len);
@@ -40,11 +40,11 @@ int main (void)
 	wiringPiSetupGpio();
 	/*WiringPi GPIO*/
 	/*DECLARATION OF OUTPUTS*/
-	pinMode(RELAY,OUTPUT);	//Moisture Pump
-	pinMode(RELAY2,OUTPUT);	//Cooling Pump
-	pinMode(RELAY3,OUTPUT);	//Nutrient Pump
-	pinMode(RELAY4,OUTPUT);	//BULB
-	pinMode(RELAY5,OUTPUT); //HEATER
+	pinMode(RELAY,OUTPUT);
+	pinMode(RELAY2,OUTPUT);
+	pinMode(RELAY3,OUTPUT);
+	pinMode(RELAY4,OUTPUT);
+	pinMode(RELAY5,OUTPUT);
 	/*DECLARATION OF INPUTS*/
 	pinMode(SOIL_S,INPUT);
 	pinMode(TEMP_S,INPUT);
@@ -52,31 +52,30 @@ int main (void)
 	pinMode(ION_S,INPUT);
 	/*SENSOR FUNCTIONS*/
 	while(1){
-	if(digitalRead(SOIL_S)==0){
+	if(digitalRead(SOIL_S)==1){
 	   digitalWrite(RELAY,HIGH);
 	}
 	else{
 	  digitalWrite(RELAY,LOW);
-		}
 	}
-	if(digitalRead(TEMP_S)==0){
+	if(digitalRead(TEMP_S)==1){
 	 digitalWrite(RELAY2,HIGH);
 	}
 	else{
 	 digitalWrite(RELAY2,LOW);
 	}
-	if(digitalRead(LIGHT_S)==0){
+	if(digitalRead(LIGHT_S)==1){
 	 digitalWrite(RELAY3,HIGH);
 	}
 	else{
  	 digitalWrite(RELAY3,LOW);
 	}
-	if(digitalRead(ION_S)==0){
+	if(digitalRead(ION_S)==1){
 	 digitalWrite(RELAY4,HIGH);
 	}
 	else{
 	 digitalWrite(RELAY4,LOW);
-	}
+	}}
 return 0;
 }
 //int x;
