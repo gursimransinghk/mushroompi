@@ -6,11 +6,12 @@
 #include<wiringPi.h>
 #include<string.h>
 /*DECLARAION OF RASPBERRYPI PINS*/
-#define RELAY 9
-#define RELAY2 11
-#define RELAY3 0
-#define RELAY4 5
-#define RELAY5 6
+#define RELAY 9 	//SOIL
+#define RELAY2 11 	//TEMPERATURE
+#define RELAY3 0 	//LDR
+#define RELAY4 5 	//ION
+#define RELAY5 6 	//HEATER
+/////////////////////////////////
 #define SOIL_S 17
 #define TEMP_S 22
 #define LIGHT_S 27
@@ -40,11 +41,11 @@ int main (void)
 	wiringPiSetupGpio();
 	/*WiringPi GPIO*/
 	/*DECLARATION OF OUTPUTS*/
-	pinMode(RELAY,OUTPUT);
-	pinMode(RELAY2,OUTPUT);
-	pinMode(RELAY3,OUTPUT);
-	pinMode(RELAY4,OUTPUT);
-	pinMode(RELAY5,OUTPUT);
+	pinMode(RELAY,OUTPUT); //SOIL MOISTURE
+	pinMode(RELAY2,OUTPUT);//TEMPERATURE
+	pinMode(RELAY3,OUTPUT);//LIGHT
+	pinMode(RELAY4,OUTPUT);//ION
+	pinMode(RELAY5,OUTPUT);//HEATER
 	/*DECLARATION OF INPUTS*/
 	pinMode(SOIL_S,INPUT);
 	pinMode(TEMP_S,INPUT);
@@ -75,7 +76,8 @@ int main (void)
 	}
 	else{
 	 digitalWrite(RELAY4,LOW);
-	}}
+	}
+}
 return 0;
 }
 //int x;
