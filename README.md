@@ -1,5 +1,4 @@
 # mushroompi
-mashroompi
 
 *********************************************************
 To enable Serial Port in RaspberryPi Commands:
