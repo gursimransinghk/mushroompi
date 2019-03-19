@@ -1,6 +1,4 @@
-/*PROGRAM FOR RASPBERRYPI MODEL 3B+*/
-/*PROGRAM SOURCE - https://www.github.com/gs369/mushroompi*/
-
+/*PROGRAM SOURCE - https://www.github.com/gs369/mushroompi
 /*LIBRARY*/
 #include<stdio.h>
 #include<wiringPi.h>
