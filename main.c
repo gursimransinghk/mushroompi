@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<wiringPi.h>
 #include<string.h>
+#include<wiringSerial.h>
 /*DECLARAION OF RASPBERRYPI PINS*/
 #define RELAY 9 	//SOIL
 #define RELAY2 11 	//TEMPERATURE
@@ -21,7 +22,7 @@ char *dash(char *buf, int len ) {
    return buf;
 }
 /*DISPLAY - PROJECT,NAME,STUDENT_ID,INSTRUCTORS*/
-int main (void)
+int main ()
 {
 	char buf[60];
 	printf("%s\n", dash(buf,60));
@@ -35,6 +36,11 @@ int main (void)
 	printf("%s\n", dash(buf,60));
 	printf("INSTRUCTORS : PROF. TAKIS ZOURNTOS\n\t      PROF. MIKE ALESHAMS\n");
 	printf("%s\n", dash(buf,60));
+	/*SERIAL DISPLAY*/
+	int fd, a; //PREDEFINED INT
+	char *b = "temp";
+	char txt[10] = "hello";
+	fd = serialOpen("/dev/ttyAMA0",115200); //UART at 115200, ttyAMA0.
 	/*GPIO*/
 	wiringPiSetupGpio();
 	/*WiringPi GPIO*/
@@ -50,33 +56,18 @@ int main (void)
 	pinMode(LIGHT_S,INPUT);
 	pinMode(ION_S,INPUT);
 	/*SENSOR FUNCTIONS*/
-	while(1){
-	if(digitalRead(SOIL_S)==1){
-	   digitalWrite(RELAY,HIGH);
+	for(;;){
+	a = serialGetchar(fd);
+	//printf("%c",a);
+	if((a) == *b){
+	digitalWrite(9,HIGH);
+	delay(100);
+	printf("what\n");
+	fflush(stdout);
+	serialPutchar(fd, *txt);
 	}
 	else{
-	  digitalWrite(RELAY,LOW);
-	}
-	if(digitalRead(TEMP_S)==1){
-	 digitalWrite(RELAY2,HIGH);
-	}
-	else{
-	 digitalWrite(RELAY2,LOW);
-	}
-	if(digitalRead(LIGHT_S)==1){
-	 digitalWrite(RELAY3,HIGH);
-	}
-	else{
- 	 digitalWrite(RELAY3,LOW);
-	}
-	if(digitalRead(ION_S)==1){
-	 digitalWrite(RELAY4,HIGH);
-	}
-	else{
-	 digitalWrite(RELAY4,LOW);
+	digitalWrite(9,LOW);
 	}
 }
-return 0;
 }
-//int x;
-//for (x=0;x<5;x++);
