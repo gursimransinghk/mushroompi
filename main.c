@@ -38,8 +38,7 @@ int main ()
 	printf("%s\n", dash(buf,60));
 	/*SERIAL DISPLAY*/
 	int fd, a; //PREDEFINED INT
-	char *b = "temp";
-	char txt[10] = "hello";
+	char *b = "t" , *d = "m" , *e = "l" , *f = "i" , *g = "p" , *txt1 = "z" , *txt2 = "y" , *txt3 = "x" , *txt4 = "w" , *txt5 = "v";
 	fd = serialOpen("/dev/ttyAMA0",115200); //UART at 115200, ttyAMA0.
 	/*GPIO*/
 	wiringPiSetupGpio();
@@ -60,14 +59,53 @@ int main ()
 	a = serialGetchar(fd);
 	//printf("%c",a);
 	if((a) == *b){
-	digitalWrite(9,HIGH);
+	digitalWrite(RELAY,HIGH);
 	delay(100);
-	printf("what\n");
+	printf("RELAY1\n");
 	fflush(stdout);
-	serialPutchar(fd, *txt);
+	serialPutchar(fd, *txt1);
 	}
 	else{
-	digitalWrite(9,LOW);
+	digitalWrite(RELAY,LOW);
+	}
+	if((a) == *d){
+	digitalWrite(RELAY2,HIGH);
+	delay(100);
+	printf("RELAY2\n");
+	fflush(stdout);
+	serialPutchar(fd, *txt2);
+	}
+	else{
+	digitalWrite(RELAY2,LOW);
+	}
+	if((a) == *e){
+	digitalWrite(RELAY3,HIGH);
+	printf("RELAY3\n");
+	fflush(stdout);
+	serialPutchar(fd, *txt3);
+	}
+	else{
+	digitalWrite(RELAY3,LOW);
+	}
+	if((a) == *f){
+	digitalWrite(RELAY4,HIGH);
+	printf("RELAY4\n");
+	fflush(stdout);
+	serialPutchar(fd, *txt4);
+	}
+	else{
+	digitalWrite(RELAY4,LOW);
+	}
+	if((a) == *g){
+	digitalWrite(RELAY5,HIGH);
+	printf("RELAY5\n");
+	fflush(stdout);
+	serialPutchar(fd, *txt5);
+	}
+	else{
+	digitalWrite(RELAY5,LOW);
 	}
 }
 }
+
+
